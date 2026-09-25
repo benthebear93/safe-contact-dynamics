@@ -1,12 +1,38 @@
-# Safe Contact Dynamics
+<h1 align="center">Safety-critical control for smoothed implicit contact dynamics</h1>
 
-Implementation of the contact-force safety method in **Safety-Critical Control for Smoothed Implicit Contact Dynamics** (accepted to IEEE Robotics and Automation Letters (RA-L), 2026; [paper](https://arxiv.org/abs/2605.21138)).
+<!-- <p align="center"><strong>Safety-critical control for smoothed implicit contact dynamics</strong></p> -->
 
-The implementation includes smoothed implicit contact dynamics, sensitivities obtained from the contact solve, a standard control barrier function (CBF), a fixed-margin robust CBF (rCBF), and boundary-focused selection of the smoothing parameter κ. It runs on the paper's four systems: box contact, planar push, box pivot, and hopper.
+<p align="center">
+  Haegu Lee · Yitaek Kim · Christoffer Sloth<br>
+  <a href="https://ieeexplore.ieee.org/document/11704662">IEEE Robotics and Automation Letters (RA-L), 2026</a>
+</p>
+
+<p align="center">
+  <a href="https://arxiv.org/abs/2605.21138"><img src="https://img.shields.io/badge/arXiv-2605.21138-b31b1b.svg" alt="arXiv paper"></a>
+  <a href="https://ieeexplore.ieee.org/document/11704662"><img src="https://img.shields.io/badge/RA--L-2026-blue.svg" alt="RA-L 2026"></a>
+  <a href="pyproject.toml"><img src="https://img.shields.io/badge/Python-3.10--3.12-3776AB.svg" alt="Python 3.10–3.12"></a>
+</p>
+
+<p align="center">
+  <a href="#features">Features</a> ·
+  <a href="#installation">Installation</a> ·
+  <a href="#examples">Examples</a> ·
+  <a href="#kappa-selection">κ selection</a> ·
+  <a href="#citation">Citation</a>
+</p>
+
+This repository implements the method in [Safety-Critical Control for Smoothed Implicit Contact Dynamics](https://arxiv.org/abs/2605.21138) for box contact, planar push, box pivot, and hopper.
+
+## Features
+
+- Smoothed implicit contact simulation with C++ model residuals and Jacobians.
+- Implicit contact-force sensitivities and standard CBF filtering.
+- Fixed-margin robust CBF (rCBF) filtering and boundary-focused κ selection.
+- Runnable numerical examples for all four systems.
 
 For a contact force γ and limit F_max, the safety margin is h = F_max − γ. Here γ is the measured normal force and F_max is its limit. The CBF constrains the predicted next margin to at least (1 − α)h at the current step, where α is the barrier decay factor. The rCBF adds a fixed margin δκ to that bound, where δκ is calibrated from force under-prediction. Algorithm 1 evaluates candidate κ values using near-boundary rollouts and predicted-versus-realized margins.
 
-## Setup
+## Installation
 
 Linux, Python 3.10–3.12, `uv`, and a C++17 compiler are required. From the repository root:
 
@@ -17,7 +43,7 @@ bash scripts/build_residuals.sh
 
 The four model residuals and Jacobians are implemented in `cpp/` and loaded by `src/cpp/`. Contact solves, implicit sensitivities, CBF/rCBF filters, and κ selection are in Python.
 
-## Run the four systems
+## Examples
 
 These commands run the four examples with bundled settings and save numerical rollout data. Run them from the repository root after building the C++ libraries.
 
@@ -46,7 +72,9 @@ The saved force series are `cbf/gamma_actual` and `rcbf/gamma_actual` in `partic
 
 The planar-push, box-pivot, and hopper examples use inputs in `reference_trajectory/`; the box-contact example generates its nominal input from a fixed seed. The planar CI-MPC path used for the κ sweep remains in `src/mpc/`.
 
-## Select κ
+## Kappa selection
+
+### Selection
 
 The four Algorithm 1 entry points are:
 
@@ -59,7 +87,7 @@ uv run python -m scripts.run_hopper_risk_constrained_kappa_selection --alpha 0.9
 
 Selection uses the bundled screening scenarios and reference inputs.
 
-## Sweep κ
+### Sweep
 
 The following command evaluates all four systems on a 20-point κ grid and saves the safety-margin data:
 
@@ -89,11 +117,12 @@ The examples demonstrate the method on the bundled trajectories; their numerical
 ## Citation
 
 ```bibtex
-@article{lee2026safecontact,
-  title   = {Safety-Critical Control for Smoothed Implicit Contact Dynamics},
-  author  = {Lee, Haegu and Kim, Yitaek and Sloth, Christoffer},
-  journal = {IEEE Robotics and Automation Letters (RA-L)},
-  year    = {2026},
-  note    = {Accepted; preprint available at arXiv:2605.21138}
+@misc{lee2026safecontact,
+  title         = {Safety-Critical Control for Smoothed Implicit Contact Dynamics},
+  author        = {Lee, Haegu and Kim, Yitaek and Sloth, Christoffer},
+  year          = {2026},
+  eprint        = {2605.21138},
+  archivePrefix = {arXiv},
+  url           = {https://arxiv.org/abs/2605.21138}
 }
 ```
