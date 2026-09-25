@@ -8,6 +8,10 @@
 </p>
 
 <p align="center">
+  <img src="assets/hopper_cbf_rcbf.gif" alt="Hopper contact-force comparison: synchronized CBF and rCBF replay" width="100%">
+</p>
+
+<p align="center">
   <a href="https://arxiv.org/abs/2605.21138"><img src="https://img.shields.io/badge/arXiv-2605.21138-b31b1b.svg" alt="arXiv paper"></a>
   <a href="https://ieeexplore.ieee.org/document/11704662"><img src="https://img.shields.io/badge/RA--L-2026-blue.svg" alt="RA-L 2026"></a>
   <a href="pyproject.toml"><img src="https://img.shields.io/badge/Python-3.10--3.12-3776AB.svg" alt="Python 3.10–3.12"></a>
