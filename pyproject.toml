@@ -1,0 +1,16 @@
+[project]
+name = "safe-contact-dynamics"
+version = "0.1.0"
+description = "Minimal experiment sources for safety-critical control of smoothed implicit contact dynamics"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+authors = [{ name = "Haegu Lee", email = "hglee93@gmail.com" }]
+dependencies = [
+    "numpy>=1.24,<2.0",
+    "scipy>=1.11,<2.0",
+    "autograd>=1.6.2,<2.0",
+    "sympy>=1.12,<2.0",
+]
+
+[tool.uv]
+package = false
