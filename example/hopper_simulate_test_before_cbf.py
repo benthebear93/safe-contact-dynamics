@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 from example.cbf_qp import minimize_qp
 
-from src.cpp.hopper_residual import make_hopper_residual
+from src.residual_models.hopper_residual import make_hopper_residual
 from src.robots.hopper.model_linear import Hopper
 from src.simulator.simulator import Simulator
 

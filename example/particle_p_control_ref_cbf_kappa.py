@@ -3,7 +3,7 @@
 import numpy as np
 
 from example.particle_p_controller_cbf_kappa import run_sim
-from src.cpp.particle_residual import make_particle_residual
+from src.residual_models.particle_residual import make_particle_residual
 from src.robots.particle.model_linear import Particle
 
 
@@ -127,7 +127,6 @@ def _run_mode(
         "u_star_z": u_star_z,
         "traj_q": traj_q,
     }
-
 
 
 

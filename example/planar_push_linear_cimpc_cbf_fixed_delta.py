@@ -10,7 +10,7 @@ from example.cbf_trust_region import (
     box_trust_region_bounds,
     box_trust_region_metrics,
 )
-from src.cpp.pusher_residual import make_pusher_residual
+from src.residual_models.pusher_residual import make_pusher_residual
 from src.simulator.simulator import Simulator
 
 

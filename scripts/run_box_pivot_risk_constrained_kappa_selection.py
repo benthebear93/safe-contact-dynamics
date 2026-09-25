@@ -32,7 +32,7 @@ from example.tipover_push_ref_cbf_kappa import (
     load_ref_traj,
     run_sim,
 )
-from src.cpp.tipover_push_residual import make_tipover_push_residual
+from src.residual_models.tipover_push_residual import make_tipover_push_residual
 
 
 def build_tipover_boundary_scenarios(

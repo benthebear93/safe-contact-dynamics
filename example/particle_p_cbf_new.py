@@ -16,7 +16,7 @@ from example.particle_p_controller_cbf_kappa import (
     particle_pd_controller,
     step_with_u,
 )
-from src.cpp.particle_residual import make_particle_residual
+from src.residual_models.particle_residual import make_particle_residual
 from src.robots.particle.model_linear import Particle
 
 

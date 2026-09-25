@@ -5,7 +5,7 @@ from example.cbf_qp import minimize_qp
 
 
 from src.robots.particle.model_linear import Particle
-from src.cpp.particle_residual import make_particle_residual
+from src.residual_models.particle_residual import make_particle_residual
 from src.simulator.simulator import Simulator
 
 
@@ -691,7 +691,6 @@ def run_sim(params, use_cbf):
         "lin_err_log": params.get("_lin_err_log"),
         "F_max": float(params["F_max"]),
     }
-
 
 
 

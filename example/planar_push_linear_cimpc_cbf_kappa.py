@@ -9,7 +9,7 @@ import numpy as np
 from example.cbf_qp import minimize_qp
 
 
-from src.cpp.pusher_residual import make_pusher_residual
+from src.residual_models.pusher_residual import make_pusher_residual
 from src.robots.pusher.model_linear import Pusher
 from src.simulator.simulator import Simulator
 from src.simulator.trajectory import ContactTrajectory

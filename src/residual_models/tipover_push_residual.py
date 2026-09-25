@@ -16,7 +16,7 @@ def _load_lib(path: Path | None = None) -> ctypes.CDLL:
     if not lib_path.exists():
         raise ImportError(
             f"{_LIB_NAME} not found at {lib_path}. "
-            "Build it with: g++ -O3 -std=c++17 -shared -fPIC cpp/tipover_push_residual.cpp -o build/libtipover_push_residual.so"
+            "Build it with: bash scripts/build_residuals.sh"
         )
     return ctypes.CDLL(str(lib_path))
 

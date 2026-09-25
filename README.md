@@ -41,7 +41,7 @@ uv sync --locked
 bash scripts/build_residuals.sh
 ```
 
-The four model residuals and Jacobians are implemented in `cpp/` and loaded by `src/cpp/`. Contact solves, implicit sensitivities, CBF/rCBF filters, and κ selection are in Python.
+The four model residuals and Jacobians are implemented in `src/residual_models/native/` and loaded by the Python bindings in `src/residual_models/`. Contact solves, implicit sensitivities, CBF/rCBF filters, and κ selection are in Python.
 
 ## Examples
 
@@ -107,7 +107,7 @@ The examples demonstrate the method on the bundled trajectories; their numerical
 
 | Path | Purpose |
 | --- | --- |
-| `cpp/`, `src/cpp/` | Native contact residuals, Jacobians, and Python bindings |
+| `src/residual_models/` | Native contact residuals, Jacobians, and Python bindings |
 | `src/robots/`, `src/simulator/`, `src/solver/` | Models, smoothed contact simulation, and implicit solves |
 | `src/mpc/` | Contact-implicit MPC for the planar κ sweep |
 | `example/` | CBF/rCBF filters and four numerical comparisons |

@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 from example.cbf_qp import minimize_qp
 
-from src.cpp.tipover_push_residual import make_tipover_push_residual
+from src.residual_models.tipover_push_residual import make_tipover_push_residual
 from src.robots.tipover.model_linear import TipOverPusher
 from src.simulator.simulator import Simulator
 
@@ -542,7 +542,6 @@ def print_violation_status(results):
             f"  {label}: violation={'YES' if any_viol else 'NO'} "
             f"(n_viol={n_viol}/{n}, max_force={float(row.get('max_force', np.nan)):.6f})"
         )
-
 
 
 

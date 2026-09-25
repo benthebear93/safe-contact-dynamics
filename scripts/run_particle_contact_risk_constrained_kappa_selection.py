@@ -15,7 +15,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from example.particle_p_controller_cbf_kappa import run_sim
-from src.cpp.particle_residual import make_particle_residual
+from src.residual_models.particle_residual import make_particle_residual
 from src.robots.particle.model_linear import Particle
 
 from scripts.risk_constrained_kappa_selection import (
